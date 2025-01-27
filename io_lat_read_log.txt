@@ -1,0 +1,68 @@
+=== Starting IO Lat Read Benchmark without caching ===
+
+Overall Stats:
+Average read latency: 0.00114089 seconds
+Minimum read latency: 0.00103211 seconds
+Maximum read latency: 0.00395936 seconds
+
+% time     seconds  usecs/call     calls    errors syscall
+------ ----------- ----------- --------- --------- ----------------
+ 91.68    0.034791          17      2005           read
+  2.91    0.001103          10       106           openat
+  1.67    0.000633         633         1           execve
+  1.57    0.000595           5       106           close
+  1.31    0.000497          19        26           mmap
+  0.27    0.000102          14         7           mprotect
+  0.18    0.000067           9         7           fstat
+  0.08    0.000031          31         1           write
+  0.08    0.000030          30         1           munmap
+  0.07    0.000028           9         3           brk
+  0.04    0.000015          15         1         1 access
+  0.03    0.000011          11         1           getcwd
+  0.03    0.000010           5         2           pread64
+  0.02    0.000006           6         1           getrandom
+  0.02    0.000006           6         1           rseq
+  0.01    0.000005           5         1           arch_prctl
+  0.01    0.000005           5         1           futex
+  0.01    0.000005           5         1           set_tid_address
+  0.01    0.000005           5         1           prlimit64
+  0.01    0.000004           4         1           set_robust_list
+------ ----------- ----------- --------- --------- ----------------
+100.00    0.037949          16      2274         1 total
+
+
+=== Starting IO Lat Read Benchmark with caching ===
+
+Overall Stats:
+Average read latency: 0.000553782 seconds
+Minimum read latency: 0.000518715 seconds
+Maximum read latency: 0.000847687 seconds
+
+Cache hits: 2397
+Cache misses: 103
+
+% time     seconds  usecs/call     calls    errors syscall
+------ ----------- ----------- --------- --------- ----------------
+ 25.55    0.000849           8       100           fsync
+ 19.44    0.000646           6       106           openat
+ 18.42    0.000612         612         1           execve
+ 11.86    0.000394           3       106           close
+ 10.98    0.000365           3       105           pread64
+  8.85    0.000294          11        26           mmap
+  1.29    0.000043           6         7           fstat
+  0.87    0.000029           5         5           read
+  0.87    0.000029           9         3           write
+  0.84    0.000028           4         7           mprotect
+  0.18    0.000006           6         1         1 access
+  0.15    0.000005           1         3           brk
+  0.15    0.000005           5         1           getcwd
+  0.15    0.000005           5         1           arch_prctl
+  0.15    0.000005           5         1           rseq
+  0.12    0.000004           4         1           set_tid_address
+  0.12    0.000004           4         1           set_robust_list
+  0.00    0.000000           0         1           munmap
+  0.00    0.000000           0         1           futex
+  0.00    0.000000           0         1           prlimit64
+  0.00    0.000000           0         1           getrandom
+------ ----------- ----------- --------- --------- ----------------
+100.00    0.003323           6       479         1 total

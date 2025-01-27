@@ -1,0 +1,72 @@
+=== Starting IO Lat Write Benchmark without caching ===
+
+Overall Stats:
+Average write latency: 0.0469466 seconds
+Minimum write latency: 0.0417834 seconds
+Maximum write latency: 0.0740011 seconds
+
+% time     seconds  usecs/call     calls    errors syscall
+------ ----------- ----------- --------- --------- ----------------
+ 95.66    1.388385           6    204801           write
+  2.55    0.036974         369       100           fsync
+  1.51    0.021980         219       100           unlink
+  0.21    0.003002          28       106           openat
+  0.07    0.000971           9       106           close
+  0.00    0.000007           1         7           fstat
+  0.00    0.000000           0         5           read
+  0.00    0.000000           0        26           mmap
+  0.00    0.000000           0         7           mprotect
+  0.00    0.000000           0         1           munmap
+  0.00    0.000000           0         3           brk
+  0.00    0.000000           0         2           pread64
+  0.00    0.000000           0         1         1 access
+  0.00    0.000000           0         1           execve
+  0.00    0.000000           0         1           getcwd
+  0.00    0.000000           0         1           arch_prctl
+  0.00    0.000000           0         1           futex
+  0.00    0.000000           0         1           set_tid_address
+  0.00    0.000000           0         1           set_robust_list
+  0.00    0.000000           0         1           prlimit64
+  0.00    0.000000           0         1           getrandom
+  0.00    0.000000           0         1           rseq
+------ ----------- ----------- --------- --------- ----------------
+100.00    1.451319           7    205274         1 total
+
+
+=== Starting IO Lat Write Benchmark with caching ===
+
+Overall Stats:
+Average write latency: 0.0220688 seconds
+Minimum write latency: 0.018274 seconds
+Maximum write latency: 0.0444621 seconds
+
+Cache hits: 179200
+Cache misses: 25600
+
+% time     seconds  usecs/call     calls    errors syscall
+------ ----------- ----------- --------- --------- ----------------
+ 84.75    0.568028          22     25600           pwrite64
+ 13.53    0.090685           3     25602           pread64
+  0.86    0.005771          57       100           unlink
+  0.40    0.002671          25       106           openat
+  0.30    0.002034          10       200           fsync
+  0.13    0.000839           7       106           close
+  0.01    0.000086           3        26           mmap
+  0.01    0.000049           7         7           mprotect
+  0.00    0.000033          11         3           write
+  0.00    0.000016           3         5           brk
+  0.00    0.000015          15         1           munmap
+  0.00    0.000011           1         7           fstat
+  0.00    0.000004           0         5           read
+  0.00    0.000003           3         1           arch_prctl
+  0.00    0.000003           3         1           futex
+  0.00    0.000003           3         1           set_tid_address
+  0.00    0.000003           3         1           prlimit64
+  0.00    0.000003           3         1           getrandom
+  0.00    0.000003           3         1           rseq
+  0.00    0.000002           2         1           set_robust_list
+  0.00    0.000000           0         1         1 access
+  0.00    0.000000           0         1           execve
+  0.00    0.000000           0         1           getcwd
+------ ----------- ----------- --------- --------- ----------------
+100.00    0.670262          12     51778         1 total
